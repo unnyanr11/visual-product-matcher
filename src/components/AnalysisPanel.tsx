@@ -1,7 +1,3 @@
-/**
- * AnalysisPanel component - Displays AI analysis results for uploaded images
- * Shows feature matching, confidence scores, and detection results
- */
 import { useState, useEffect } from 'react';
 import { Zap, Target, Palette, Scan } from 'lucide-react';
 
@@ -30,7 +26,7 @@ export default function AnalysisPanel({ imageData, isAnalyzing, onStartAnalysis,
 
   useEffect(() => {
     if (imageData && !isAnalyzing) {
-      // TODO: Replace with your actual AI service integration
+    
       console.log('Image ready for AI analysis:', imageData);
       setAnalysis(null); // Clear any previous analysis
     } else {
