@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { Upload, Link as LinkIcon, X, Search, Loader2 } from "lucide-react";
 
@@ -21,7 +20,7 @@ export default function ImageUpload({
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  /** Convert Blob or URL to Base64 dataURL */
+  // Convert Blob or URL to Base64 dataURL
   const blobToBase64 = (blob: Blob): Promise<string> => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -38,7 +37,7 @@ export default function ImageUpload({
     return blobToBase64(blob);
   };
 
-  /** Handle File Upload */
+  // Handle File Upload
   const handleFileSelect = (file: File) => {
     if (file && file.type.startsWith("image/")) {
       setError(null);
@@ -56,7 +55,7 @@ export default function ImageUpload({
     }
   };
 
-  /** Drag/Drop Handlers */
+  // Drag/Drop Handlers
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -73,7 +72,7 @@ export default function ImageUpload({
     }
   };
 
-  /** URL Input submit — automatically converts to Base64 */
+  // URL Input submit — automatically converts to Base64
   const handleUrlSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!imageUrl) return;
@@ -94,7 +93,7 @@ export default function ImageUpload({
     }
   };
 
-  /** Remove image preview */
+  // Remove image preview
   const removePreview = () => {
     setPreview(null);
     setError(null);
@@ -102,7 +101,7 @@ export default function ImageUpload({
     onImageRemove?.();
   };
 
-  /** Manually trigger search */
+  // Manually trigger search
   const handleSearch = () => {
     if (preview && (onSearch || onImageUpload)) {
       (onSearch ?? onImageUpload)(preview);
