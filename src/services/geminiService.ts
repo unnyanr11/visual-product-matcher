@@ -1,4 +1,3 @@
-
 import { GeneralSearchResult, EcommerceSearchResult } from "../types/search";
 import { config } from "./apiConfig";
 
@@ -18,9 +17,7 @@ export interface ImageComparisonResult {
 }
 
 export class GeminiService {
-  /**
-   * Analyze image and perform search using Gemini 2.0 Flash Lite
-   */
+
   static async analyzeImageAndSearch(imageData: string): Promise<{
     generalResults: GeneralSearchResult[];
     ecommerceResults: EcommerceSearchResult[];
@@ -33,16 +30,16 @@ export class GeminiService {
     }
 
     try {
-      // Step 1: Gemini analysis
+      // Gemini analysis
       const analysis = await this.analyzeImage(imageData);
 
-      // Step 2: Run web + e-commerce searches concurrently
+      // Run web + e-commerce searches concurrently
       const [generalResults, ecommerceResults] = await Promise.all([
         this.searchGeneralWeb(analysis.searchQuery),
         this.searchEcommerce(analysis.searchQuery),
       ]);
 
-      // Step 3: Enhance results with image comparison
+      // Enhance results with image comparison
       const [enhancedGeneralResults, enhancedEcommerceResults] = await Promise.all([
         this.enhanceResultsWithImageComparison(imageData, generalResults, "general"),
         this.enhanceResultsWithImageComparison(imageData, ecommerceResults, "ecommerce"),
@@ -59,9 +56,6 @@ export class GeminiService {
     }
   }
 
-  /**
-   * Analyze an uploaded image using Gemini 2.0 Flash Lite
-   */
   private static async analyzeImage(imageData: string): Promise<GeminiAnalysis> {
     const base64Image = imageData.split(",")[1];
 
@@ -152,9 +146,6 @@ objects: [list], colors: [hex codes], style: [description], description: [text],
   };
 }
 
-  /**
-   * Compare two images using Gemini 2.0 Flash Lite
-   */
   private static async compareImages(
     uploadedImageData: string,
     resultImageUrl: string
