@@ -1,8 +1,3 @@
-/**
- * ProductCard component for displaying individual product information
- * Enhanced with actual matching percentage display from Gemini AI comparison
- */
-
 import { Star, Zap, AlertCircle } from 'lucide-react';
 import { Product } from '../types/product';
 import FeatureMatch from './FeatureMatch';
@@ -12,9 +7,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  /**
-   * Get similarity color based on percentage
-   */
+  //Get similarity color based on percentage
   const getSimilarityColor = (similarity: number) => {
     if (similarity >= 90) return 'text-green-600 bg-green-50 border-green-200';
     if (similarity >= 80) return 'text-blue-600 bg-blue-50 border-blue-200';
