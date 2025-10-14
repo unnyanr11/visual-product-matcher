@@ -1,6 +1,4 @@
-/**
- * ProductGrid component for displaying similar products in a responsive grid
- */
+//ProductGrid component for displaying similar products in a responsive grid
 import ProductCard from './ProductCard';
 import { Product } from '../types/product';
 
