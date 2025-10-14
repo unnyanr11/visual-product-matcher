@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Slider } from "../components/ui/slider";
 
@@ -14,17 +13,17 @@ export default function FilterPanel({
   showHeader = true,
 }: FilterPanelProps) {
   const [filters, setFilters] = useState({
-    similarity: [0, 100], // ✅ default range
+    similarity: [0, 100], // default range
   });
 
-  /** Update filters and notify parent */
+  // Update filters and notify parent
   const updateFilters = (newFilters: any) => {
     const updated = { ...filters, ...newFilters };
     setFilters(updated);
     onFilterChange(updated);
   };
 
-  /** Reset filters */
+  // Reset filters
   const resetFilters = () => {
     const reset = { similarity: [0, 100] };
     setFilters(reset);
