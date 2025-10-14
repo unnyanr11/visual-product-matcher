@@ -1,8 +1,3 @@
-/**
- * SearchResultsTabs component - Displays search results in two tabs
- * Shows actual matching percentages from Gemini AI image comparison
- */
-
 import { useState } from 'react';
 import { Globe, ShoppingBag, Zap, AlertCircle } from 'lucide-react';
 import { GeneralSearchResult, EcommerceSearchResult } from '../types/search';
@@ -64,9 +59,7 @@ export default function SearchResultsTabs({
   );
 }
 
-/**
- * Get matching color based on percentage
- */
+//Get matching color based on percentage
 function getMatchingColor(percentage: number): string {
   if (percentage >= 90) return 'text-green-600 bg-green-50 border-green-200';
   if (percentage >= 80) return 'text-blue-600 bg-blue-50 border-blue-200';
@@ -75,9 +68,7 @@ function getMatchingColor(percentage: number): string {
   return 'text-red-600 bg-red-50 border-red-200';
 }
 
-/**
- * General search results list component with actual matching percentages
- */
+// General search results list component with actual matching percentages
 function GeneralResultsList({ results }: { results: GeneralSearchResult[] }) {
   if (results.length === 0) {
     return (
@@ -155,9 +146,7 @@ function GeneralResultsList({ results }: { results: GeneralSearchResult[] }) {
   );
 }
 
-/**
- * E-commerce results list component with actual matching percentages
- */
+//E-commerce results list component with actual matching percentages
 function EcommerceResultsList({ results }: { results: EcommerceSearchResult[] }) {
   if (results.length === 0) {
     return (
