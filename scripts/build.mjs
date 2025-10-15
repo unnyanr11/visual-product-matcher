@@ -5,7 +5,6 @@ import autoprefixer from 'autoprefixer'
 import tailwindcss from 'tailwindcss'
 import dotenv from 'dotenv'
 
-// Load environment variables from .env file
 dotenv.config()
 
 const args = process.argv.slice(2)
@@ -13,9 +12,6 @@ const isProd = args[0] === '--production'
 
 await rimraf('dist')
 
-/**
- * @type {esbuild.BuildOptions}
- */
 const esbuildOpts = {
   color: true,
   entryPoints: ['src/main.tsx', 'index.html'],
@@ -23,7 +19,7 @@ const esbuildOpts = {
   entryNames: '[name]',
   write: true,
   bundle: true,
-  format: 'iife', // you can change to 'esm' if you prefer
+  format: 'iife',
   sourcemap: isProd ? false : 'linked',
   minify: isProd,
   treeShaking: true,
