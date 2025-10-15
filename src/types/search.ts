@@ -1,8 +1,3 @@
-/**
- * Search result types for Gemini AI web search results
- * Enhanced with actual matching percentage fields from image comparison
- */
-
 export interface GeneralSearchResult {
   title: string;
   url: string;
