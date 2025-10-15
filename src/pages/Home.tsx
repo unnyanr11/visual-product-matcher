@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from "react";
 import { Filter, ShoppingBag } from "lucide-react";
 import ImageUpload from "../components/ImageUpload";
@@ -30,7 +29,7 @@ export default function Home() {
   const [visibleGeneral, setVisibleGeneral] = useState(10);
   const [visibleEcommerce, setVisibleEcommerce] = useState(10);
 
-  /** Handle image upload/reset **/
+  // Handle image upload/reset
   const handleImageUpload = (imageData: string) => {
     setUploadedImage(imageData);
     setSearchResults({ general: [], ecommerce: [] });
@@ -45,7 +44,7 @@ export default function Home() {
     setAnalysisData(null);
   };
 
-  /** Run AI analysis & search **/
+  // Run AI analysis & search
   const handleSearch = async (imageData: string) => {
     setIsLoading(true);
     setIsAnalyzing(true);
@@ -87,7 +86,7 @@ export default function Home() {
     }
   };
 
-  /** Filters **/
+  // Filters
   const handleFilterChange = (filters: { similarity: number[] }) => {
     const [minSim, maxSim] = filters.similarity;
     const filterAndSort = (arr: any[]) =>
@@ -109,7 +108,7 @@ export default function Home() {
     setVisibleEcommerce(10);
   };
 
-  /** Local Filtering by Object Tag **/
+  // Local Filtering by Object Tag
   const handleObjectClick = (object: string) => {
     const lowerObj = object.toLowerCase();
 
@@ -145,7 +144,7 @@ export default function Home() {
   const showMoreGeneral = () => setVisibleGeneral((prev) => prev + 10);
   const showMoreEcommerce = () => setVisibleEcommerce((prev) => prev + 10);
 
-  /** --- UI --- **/
+  // UI
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Header */}
